@@ -1,0 +1,124 @@
+{
+  "name": "@dexlab-project/mome-cli",
+  "version": "0.1.0-rc.2",
+  "description": "A CLI tool for trading on the Mome Launchpad",
+  "bin": {
+    "mome": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "build:release": "tsc -p tsconfig.release.json",
+    "watch": "tsc --watch",
+    "test": "jest",
+    "lint": "eslint 'src/**/*.{js,ts}'",
+    "format": "prettier --write 'src/**/*.{js,ts,json,md}'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dexlab-project/mome-cli-release.git"
+  },
+  "homepage": "https://mome.space",
+  "author": "dev@dexlab.space",
+  "license": "MIT",
+  "keywords": [
+    "mome",
+    "dexlab",
+    "cli",
+    "web3",
+    "solana",
+    "meme"
+  ],
+  "devDependencies": {
+    "@types/cli-spinner": "^0.2.3",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.14.9",
+    "@typescript-eslint/eslint-plugin": "^6.18.0",
+    "@typescript-eslint/parser": "^6.18.0",
+    "eslint": "8.56.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.1.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jest": "^27.6.1",
+    "eslint-plugin-prettier": "^5.1.2",
+    "jest": "^29.7.0",
+    "prettier": "^3.3.2",
+    "ts-jest": "^29.1.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.2"
+  },
+  "dependencies": {
+    "@dexlab-project/mome-sdk": "^0.1.5",
+    "@inquirer/prompts": "^7.0.0",
+    "bigint-buffer": "^1.1.5",
+    "chalk": "^4.1.2",
+    "cli-spinner": "^0.2.10",
+    "commander": "^12.1.0",
+    "config": "^3.3.12",
+    "just-safe-set": "^4.2.1"
+  },
+  "eslintConfig": {
+    "root": true,
+    "plugins": [
+      "prettier",
+      "jest",
+      "import"
+    ],
+    "rules": {
+      "prettier/prettier": "error",
+      "@typescript-eslint/interface-name-prefix": "off",
+      "@typescript-eslint/explicit-module-boundary-types": [
+        "warn"
+      ],
+      "@typescript-eslint/explicit-function-return-type": [
+        "warn"
+      ],
+      "@typescript-eslint/no-explicit-any": [
+        "warn"
+      ],
+      "@typescript-eslint/naming-convention": [
+        "off"
+      ],
+      "@typescript-eslint/no-duplicate-enum-values": "off",
+      "object-curly-spacing": "warn",
+      "array-bracket-spacing": "warn",
+      "no-await-in-loop": "off",
+      "import/export": "off",
+      "no-underscore-dangle": "off",
+      "new-cap": "off",
+      "no-restricted-syntax": "off",
+      "no-continue": "off",
+      "no-plusplus": "off",
+      "no-param-reassign": [
+        2,
+        {
+          "props": false
+        }
+      ],
+      "no-useless-constructor": "off"
+    },
+    "extends": [
+      "airbnb-typescript/base",
+      "airbnb-typescript/base",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:prettier/recommended"
+    ],
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
+    "ignorePatterns": []
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "trailingComma": "all"
+  },
+  "eslintIgnore": [
+    "node_modules/",
+    "dist/"
+  ],
+  "prettierIgnore": [
+    "node_modules/",
+    "dist/"
+  ]
+}

@@ -1,0 +1,40 @@
+name: Deploy to npmjs
+
+on:
+  release:
+    types: [ created ]
+
+jobs:
+  publish:
+    runs-on: ${{ fromJson(vars.RUNNER) }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get branch name
+        id: get_branch
+        run: echo "branch_name=$(git branch -r --contains ${{ github.event.release.tag_name }} | grep -o 'origin/.*' | sed 's|origin/||')" >> $GITHUB_ENV
+
+      - name: Display branch name
+        run: |
+          echo "Release created on branch: ${{ env.branch_name }}"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'yarn'
+          registry-url: https://registry.npmjs.org/
+
+      - name: tarball
+        run: yarn pack
+
+      - name: Find tarball
+        id: find_tarball
+        run: echo "TARBALL=$(ls *.tgz)" >> $GITHUB_ENV
+
+      - name: publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PACKAGES_TOKEN }}
+        run: yarn publish ${{ env.TARBALL }} --access public
+
