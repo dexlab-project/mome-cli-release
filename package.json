@@ -48,7 +48,7 @@
     "typescript": "^5.5.2"
   },
   "dependencies": {
-    "@dexlab-project/mome-sdk": "^0.2.1",
+    "@dexlab-project/mome-sdk": "^0.2.2",
     "@inquirer/prompts": "^7.0.0",
     "bigint-buffer": "^1.1.5",
     "chalk": "^4.1.2",
