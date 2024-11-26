@@ -1,6 +1,6 @@
 {
   "name": "@dexlab-project/mome-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A CLI tool for trading on the Mome Launchpad",
   "bin": {
     "mome": "dist/index.js"
@@ -48,7 +48,7 @@
     "typescript": "^5.5.2"
   },
   "dependencies": {
-    "@dexlab-project/mome-sdk": "^0.1.5",
+    "@dexlab-project/mome-sdk": "^0.2.2",
     "@inquirer/prompts": "^7.0.0",
     "bigint-buffer": "^1.1.5",
     "chalk": "^4.1.2",
